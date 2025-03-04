@@ -10,7 +10,12 @@ public class Ameba
 {
 	public int simulate(int[] X, int A)
 	{
-	    return default(int);
+		foreach (int gel in X) {
+			if (A == gel) {
+				A += gel;
+			}
+		}
+	    return A;
 	}
 
 	#region Testing code
