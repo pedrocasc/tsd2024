@@ -10,7 +10,23 @@ public class Alarms
 {
 	public int countAlarms(int[] volume, int S)
 	{
-        return default(int);
+		int alarms = 0;
+
+		while (S > 0) {
+			S -= volume[0];
+			alarms++;
+
+			// Rotate array to the right by using XOR
+			var last = volume.Length - 1;
+			for (var i = 0; i < last; i++)
+			{
+				volume[i] ^= volume[last];
+				volume[last] ^= volume[i];
+				volume[i] ^= volume[last];
+			}
+		}
+
+        return alarms;
 	}
 
 	#region Testing code
